@@ -146,6 +146,8 @@ def create_server(ports, ip_addr):
             servers.append(sock)
         except PermissionError:
             print('\n>>> %s[Port %d restricted]%s You have to be root (have superuser privileges) in order to listen to TCP or UDP ports below 1024' % (red, port, end))
+        except OSError:
+            print('>>> %s[Port %d already in use]%s' % (red, port, end))    
 
     if servers:
         while True:
