@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Editors folders
+.vscode
+
+# Virtualenvs
+.venv
+
+# Databases
+*.db
