@@ -18,36 +18,44 @@ Modo de usar:
 usage: honeypot.py [-h] [-i IPADDR] [-p PORTS [PORTS ...]] [-q QUERY] [-e] [-v]
 
 -h, --help show this help message and exit
+
 -i IPADDR, --ipaddr IPADDR (IP address server)
+
 -p PORTS [PORTS ...], --ports PORTS [PORTS ...] (List of ports to open)
+
 -q QUERY, --query QUERY (SQL query for search in logs)
+
 -e, --examples (Examples of SQL query)
+
 -v, --version  (show program's version number and exit)
 
 ### Estrutura do banco de dados
 
-Nome: logs.db
+Nome do banco de dados: ***logs.db***
 
-Nome das tabelas: logs, info, ports
+Nome das tabelas: **logs**, **info**, **ports**
 
 Colunas na tabela logs:
-                        log_id (integer)   - Log ID
-                        ip_orig (string)   - Origin IP
-                        port_orig (string) - Origin Port
-                        ip_dst (string)    - Destination IP
-                        port_dst (string)  - Destination Port
-                        created (datetime) - format: %Y-%m-%d %H:%M:%S
-                        banned (boolean)   - false = 0 | true = 1
+
+- log_id (integer)   - Log ID
+- ip_orig (string)   - Origin IP
+- port_orig (string) - Origin Port
+- ip_dst (string)    - Destination IP
+- port_dst (string)  - Destination Port
+- created (datetime) - format: %Y-%m-%d %H:%M:%S
+- banned (boolean)   - false = 0 | true = 1
 
 Colunas na tabela info:
-                        info_id (integer)   - Info ID
-                        msg (string)        - Message from client
-                        log_fk (integer)    - Logs foreign key
+
+- info_id (integer)   - Info ID
+- msg (string)        - Message from client
+- log_fk (integer)    - Logs foreign key
 
 Colunas na tabela ports:
-                        port_id (integer)   - Port ID
-                        port (integer)      - Port number
-                        blocked (boolean)   - false = 0 | true = 1
+
+- port_id (integer)   - Port ID
+- port (integer)      - Port number
+- blocked (boolean)   - false = 0 | true = 1
 
 
 Mostrar ajuda:
@@ -56,6 +64,7 @@ $ python3 honeypot.py -h
 ```
 
 Antes de executar o Honeypot verifique o IP da máquina local.
+
 Usando o comando ifconfig no Linux e obtendo o IP da interface de rede (eth0, eth1, enp4s0):
 ```sh
 $ sudo ifconfig
